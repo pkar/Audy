@@ -33,7 +33,8 @@ Initial Steps
 
     # heroku addons:add mongohq:free
 
-    heroku create appname --stack cedar --buildpack https://github.com/jordansissel/heroku-buildpack-meteor.git
+    heroku create audy --stack cedar --buildpack https://github.com/jordansissel/heroku-buildpack-meteor.git
+    #heroku config:set ROOT_URL=http://audy.herokuapp.com
 
     # To deploy just commit and push
     # git commit -m "commit details"

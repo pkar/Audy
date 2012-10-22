@@ -15,7 +15,6 @@ class Audy.AppRouter extends Backbone.Router
 
   index: ->
     console.log 'index'
-    console.log $('.filepickerio')
 
   help: ->
     console.log 'help'
@@ -27,9 +26,10 @@ class Audy.AppRouter extends Backbone.Router
     document.title = "Error"
 
 
-$ ->
+Meteor.startup () ->
   broker = _.extend({}, Backbone.Events)
   appRouter = new Audy.AppRouter(broker)
   if not Backbone.history.start({pushState: true})
     appRouter.app.middle.$el.html = new Audy.Views.Error().render().$el
+  #console.log $('.filepickerio').trigger 'click'
 
