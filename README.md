@@ -73,6 +73,19 @@ Initial Steps
     server/publications.js  # <- Meteor.publish definitions
     server/lib/environment.js   # <- configuration of server side packages
 
+    Files in [project_root]/lib are loaded first. Obviously, put libraries in this directory.
+    Files are sorted by directory depth. Deeper files are loaded first.
+    Files are sorted in alphabetical order.
+    main.* files are loaded last. These are nice for code that needs to be run after every other script and library has loaded.
+    Meteor has some special directories that help you deal with breaking apart client/server code and deal with load order:
+
+    [project_root]/lib/ - Files in this directory will get loaded before your client/server code starts.
+    [project_root]/client/ - Files here are only sent to the client’s browser and aren’t available or run from the server.
+    [project_root]/server/ - Files here are only run on the server and aren’t available on the client.
+    [project_root]/public/ - Meteor serves static media from this directory. If you put image.jpg in here, feel free to refer to it directly as image.jpg in your html.
+    [project_root]/.meteor/ - Meteor keeps special, project related info in here, like which modules you’ve installed. You really shouldn’t need to poke around in here.
+      
+
 
 3. File storage is handled by filepicker.io going to an S3 bucket
 
