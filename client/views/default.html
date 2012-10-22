@@ -1,50 +1,61 @@
 
-<template name="main">
-  <div class="container-fluid">
-    <div class="row-fluid">
-      <div class="span2">
-        {{ loginButtons }}
-      </div>
-      <div class="span10">
-        <h1>Audy!</h1>
-      </div>
-      {{ greeting }}
-      <button class="filepickerio btn btn-mini">F</button>
-    </div>
+<template name="header">
+<div class="row-fluid">
+  <div class="span12">
+    {{ loginButtons }}
   </div>
+</div>
 </template>
 
-<template name="filepickerio">
-  <script type="text/javascript">
-  (function(a){if(window.filepicker){return}var b=a.createElement("script");b.type="text/javascript";b.async=!0;b.src=("https:"===a.location.protocol?"https:":"http:")+"//api.filepicker.io/v1/filepicker.js";var c=a.getElementsByTagName("script")[0];c.parentNode.insertBefore(b,c);var d={};d._queue=[];var e="pick,pickMultiple,read,write,writeUrl,export,convert,store,storeUrl,remove,stat,setKey,constructWidget,makeDropPane".split(",");var f=function(a,b){return function(){b.push([a,arguments])}};for(var g=0;g<e.length;g++){d[e[g]]=f(e[g],d._queue)}window.filepicker=d;})(document); 
-  </script>
+<template name="main">
+<div class="row-fluid">
+  <div class="span2 well left">
+    {{> left }}
+  </div>
+  <div class="span7 well center">
+    {{> middle }}
+  </div>
+  <div class="span3 well right">
+    {{> right }}
+  </div>
+</div>
+</template>
+
+<template name="footer">
+<div class="row-fluid footer">
+  <div class="span12 well">
+    ...
+  </div>
+</div>
 </template>
 
 <template name="googleAnalytics">
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'IDHERE']);
-    _gaq.push(['_trackPageview']);
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', '{{ code }}']);
+  _gaq.push(['_trackPageview']);
+  console.log( _gaq);
 
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
 
-    try {
-      // Log all jQuery AJAX requests to Google Analytics
-      $(document).ajaxSend(function(event, xhr, settings) {
-        if (typeof _gaq !== "undefined" && _gaq !== null) {
-          _gaq.push(['_trackPageview', settings.url]);
-        }
-      });
-    } catch(e) {
+  try {
+    // Log all jQuery AJAX requests to Google Analytics
+    $(document).ajaxSend(function(event, xhr, settings) {
+      if (typeof _gaq !== "undefined" && _gaq !== null) {
+        _gaq.push(['_trackPageview', settings.url]);
+      }
+    });
+  } catch(e) {
 
-    }
-    window.onerror = function(message, file, line) {
-      var sFormattedMessage = '[' + file + ' (' + line + ')] ' + message; 
-      _gaq.push(['_trackEvent', 'Exceptions', 'Application', sFormattedMessage, null, true]);
-    }
-  </script>
+  }
+  window.onerror = function(message, file, line) {
+    var sFormattedMessage = '[' + file + ' (' + line + ')] ' + message; 
+    _gaq.push(['_trackEvent', 'Exceptions', 'Application', sFormattedMessage, null, true]);
+  }
+</script>
 </template>
+

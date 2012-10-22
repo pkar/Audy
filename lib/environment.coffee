@@ -1,4 +1,5 @@
+root = global ? window
 
-# Add underscore string functions and template settings
-_.mixin(_.string.exports())
+Audy = Audy || {}
+root.Audy = Audy || {}
 

@@ -37,8 +37,10 @@ Initial Steps
     heroku create audy --stack cedar --buildpack https://github.com/pkar/heroku-buildpack-meteor.git
     #heroku config:set ROOT_URL=http://audy.herokuapp.com
     #heroku config:set FILEPICKERIO=ApH1oY5HHQy_____
+    #heroku config:set GOOGLE_ANALYTICS=key
     # Locally FILEPICKERIO env must be set 
     export FILEPICKERIO=apikey
+    export GOOGLE_ANALYTICS=apikey
 
     # To deploy just commit and push
     # git commit -m "commit details"
@@ -51,6 +53,8 @@ Initial Steps
 2.  Since a canonical layout is unknown, try using this layout structure
 
     ## https://github.com/tmeasday/unofficial-meteor-faq#where-should-i-put-my-files
+    ## Listed here for reference only
+
     lib/                    # <- any common code for client/server. 
     lib/environment.js      # <- general configuration
     lib/methods.js          # <- Meteor.method definitions

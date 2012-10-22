@@ -1,0 +1,28 @@
+<template name="right">
+{{#if currentUserLoaded}}
+  {{> chat}}
+{{/if}}
+</template>
+
+<template name="chat">
+<p>
+  <input type="text" id="chat-message" placeholder="Your Message" />
+</p>
+{{> messages}}
+</template>
+
+<template name="messages">
+<div class="well">
+{{#each messages}}
+  <div class="row-fluid">
+    <div class="span4">
+      <strong>{{name}}</strong>
+    </div>
+    <div class="span8">
+      {{message}}
+    </div>
+  </div>
+{{/each}}
+</div>
+</p>
+</template>

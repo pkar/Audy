@@ -1,13 +1,14 @@
-root = window
+root = global ? window
 
 root.Template.main.greeting = ->
   #console.log Session.get('user')
   "Hello #{}"
 
 root.Template.main.events =
-  "click .filepickerio": ->
+  "click .filepickerio": (event) ->
     filepicker.pick(
-      {mimetypes:['image/*']},
+      {mimetypes:['*']},
+      #{mimetypes:['image/*']},
       (FPFile) ->
         console.log FPFile
       ,
@@ -15,4 +16,7 @@ root.Template.main.events =
         console.log FPError
       ,
     )
+
+root.Template.googleAnalytics.code =
+  Session.get '_googleAnalytics'
 
