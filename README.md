@@ -11,11 +11,11 @@ Initial Steps
     curl https://install.meteor.com | /bin/sh
     meteor create Audy
     cd Audy
-    meteor add bootstrap coffeescript underscore jquery backbone accounts-base accounts-ui accounts-password
+    meteor add bootstrap coffeescript underscore jquery backbone accounts-base accounts-ui accounts-password http accounts-google accounts-github
 
     # When ready to deploy
     # meteor remove insecure
-    # meteor remove autopublish
+    meteor remove autopublish
 
     git init
     git add .
@@ -32,6 +32,7 @@ Initial Steps
 # Requires mongohq, make sure account is verified by adding CC 
 
     # heroku addons:add mongohq:free
+    # heroku addons:add mailgun:starter
 
     heroku create audy --stack cedar --buildpack https://github.com/pkar/heroku-buildpack-meteor.git
     #heroku config:set ROOT_URL=http://audy.herokuapp.com
@@ -46,7 +47,6 @@ Initial Steps
 
 # Caveats
 1. Tests have to go into the tests folder, part of the magic
-
 
 2.  Since a canonical layout is unknown, try using this layout structure
 
