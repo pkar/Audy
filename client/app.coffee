@@ -31,5 +31,8 @@ Meteor.startup () ->
   appRouter = new Audy.AppRouter(broker)
   if not Backbone.history.start({pushState: true})
     appRouter.app.middle.$el.html = new Audy.Views.Error().render().$el
-  #console.log $('.filepickerio').trigger 'click'
+
+  Meteor.call 'filepickerio', (err, key) ->
+    if not err
+      filepicker.setKey(key)
 

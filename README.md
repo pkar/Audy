@@ -33,8 +33,11 @@ Initial Steps
 
     # heroku addons:add mongohq:free
 
-    heroku create audy --stack cedar --buildpack https://github.com/jordansissel/heroku-buildpack-meteor.git
+    heroku create audy --stack cedar --buildpack https://github.com/pkar/heroku-buildpack-meteor.git
     #heroku config:set ROOT_URL=http://audy.herokuapp.com
+    #heroku config:set FILEPICKERIO=ApH1oY5HHQy_____
+    # Locally FILEPICKERIO env must be set 
+    export FILEPICKERIO=apikey
 
     # To deploy just commit and push
     # git commit -m "commit details"

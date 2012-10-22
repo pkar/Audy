@@ -1,2 +1,6 @@
 
-console.log Meteor
+Meteor.startup () ->
+  Meteor.methods
+    filepickerio: () ->
+      process.env.FILEPICKERIO
+

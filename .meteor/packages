@@ -14,3 +14,5 @@ less
 accounts-password
 accounts-ui
 accounts-google
+accounts-facebook
+accounts-github
