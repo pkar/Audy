@@ -1,7 +1,7 @@
 Audy
 ================
 
-Deploying Audy with Meteor on Heroku. Live jam sessions.
+Deploying Audy with Meteor on Heroku.
 
 
 Initial Steps
